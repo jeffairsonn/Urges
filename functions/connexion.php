@@ -80,6 +80,7 @@ if($verification == 1)
 		if($row['d4'] == 1) //Si root -> redirection vers plateforme Root
 		{
 			$_SESSION['d4'] = "1";
+			header('Location: ../admin/index.php');
 		}
 // Fin verification des droits utilisateur
 	}
