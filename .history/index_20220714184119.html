@@ -16,10 +16,14 @@
 				<div class="relative flex flex-wrap">
 					<div class="w-full relative">
 						<div class="mt-6">
-							<img class="objet-cover" src="administration/img/logo_base.png">
 							<div class="text-center font-semibold text-black">
-								<h1>Connexion</h1>
+								<p>Connexion</p>
 							</div>
+	<form method="post" action=functions/connexion.php>
+		<input type="text" name="login"><br>
+		<input type="password" name="pass"><br>
+		<center><input type="submit" name="Valider" value="Valider"></center>
+	</form>
 							<form class="mt-8" method="post" action=functions/connexion.php>
 								<div class="mx-auto max-w-lg">
 									<div class="py-2">
@@ -31,7 +35,7 @@
 									<div class="py-2" x-data="{ show: true }">
 										<span class="px-1 text-sm text-gray-600">Password</span>
 										<div class="relative">
-											<input name="pass" placeholder="" :type="show ? 'password' : 'text'" class="text-md block px-3 py-2 rounded-lg w-full 
+											<input placeholder="" :type="show ? 'password' : 'text'" class="text-md block px-3 py-2 rounded-lg w-full 
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
                 focus:placeholder-gray-500
                 focus:bg-white 
@@ -60,7 +64,7 @@
 										</div>
 									</div>
 									</span></a></label>
-								</div> <button type="submit" name="validez" class="mt-3 text-lg font-semibold 
+								</div> <button class="mt-3 text-lg font-semibold 
                 bg-gray-800 w-full text-white rounded-lg
                 px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
 									Connexion
