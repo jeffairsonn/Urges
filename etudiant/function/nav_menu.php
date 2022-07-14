@@ -29,8 +29,7 @@
                 <li><a class="dropdown-item" href="../Home/profil.php">Profil</a></li>
                 <li><a class="dropdown-item" href="../Home/mes_cv.php">Mes CV's</a></li>
                 <li><a class="dropdown-item" href="../Home/offresdestage.php">Offre de stage</a></li>
-                <li><a class="dropdown-item" href="#">Mes candidatures</a></li>
-                <li><a class="dropdown-item" href="#">Évènments</a></li>
+                <li><a class="dropdown-item" href="#">Évenements</a></li>
               </ul>
             </li>
             <li class="nav-item">
