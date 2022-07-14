@@ -28,18 +28,40 @@ if($verification == 1)
 {
 	while($row=$ex_ver->fetch())
 	{
-		// Mise en place des variables de session
-		$_SESSION['nom'] = $row['login']; // Nom du compte
+		// Récuperation id_user
+		$_SESSION['ID'] = $row['id_user'];
+		$iduser = $_SESSION['ID'];		
+// Mise en place des variables de session
+		// RECUPERATION DES INFORMATIONS DE PROFIL UTILISATEUR
+		$req_profil = "SELECT * FROM `profil` WHERE `id_user` = '$iduser'";
+		$ex_profil = $link->prepare($req_profil);
+		$ex_profil->execute();
+
+		while($row_profil = $ex_profil->fetch())
+		{
+			$_SESSION['nom'] = $row_profil['nom_profil'];	// Nom du profil
+			$_SESSION['prenom'] = $row_profil['prenom_profil'];	// Prenom du profil
+			$_SESSION['classe'] = $row_profil['id_classe'];	// Id de la Classe
+			$_SESSION['adresse'] = $row_profil['adresse_profil'];	// Adresse de l'utilisateur
+			$_SESSION['ville'] = $row_profil['ville_profil'];	// Ville de l'utilisateur
+			$_SESSION['CP'] = $row_profil['CP'];	// Code postal utilisateur
+			$_SESSION['telephone'] = $row_profil['telephone'];	// Telephone utilisateur
+			$_SESSION['id_classe'] = $row_profil['id_classe'];	// ID de la classe de l'utilisateur
+
+		}
+		// FIN RECUPERATION INFORMATIONS DE PROFIL UTILISATEUR
+
 		$_SESSION['connect'] = "1"; // Statut de connexion
+
 
 		// RAZ variables de session droits
 		$_SESSION['d1'] = "0";
 		$_SESSION['d2'] = "0";
 		$_SESSION['d3'] = "0";
 		$_SESSION['d4'] = "0";
-		// Fin de mise en place des variables de session
+// Fin de mise en place des variables de session
 
-		// Verification des droits utilisateurs
+// Verification des droits utilisateurs
 		if($row['d1'] == 1) // Si Eleve -> redirection vers plateforme élève
 		{
 			$_SESSION['d1'] = "1";
@@ -59,6 +81,7 @@ if($verification == 1)
 		{
 			$_SESSION['d4'] = "1";
 		}
+// Fin verification des droits utilisateur
 	}
 }
 else // Si aucunes entrées -> retour à la page de connexion
