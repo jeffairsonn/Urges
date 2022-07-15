@@ -2,7 +2,7 @@
 //Reprise de session
 session_start();
 // Verification de la connexion utilisateur
-if($_SESSION['connect'] !== "1"){  header('Location: ../../../index.html'); }
+if($_SESSION['connect'] !== "1" || $_SESSION['d3'] !== "1"){  header('Location: ../../../index.html'); }
 // Récuperation de la connexion à la base de données
 include('../../function/bdd.php');
 // Mise en place du header
@@ -22,6 +22,7 @@ $ex->execute();
 
 while($row=$ex->fetch())
 {
+	$idoffre = $row['id_offre'];
 	echo "<strong>Référence:</strong> N°".$row['id_offre'];
 	echo "&nbsp;&nbsp;&nbsp";
 	echo "<strong>Lieu:</strong> ".$row['lieu_offre'];
@@ -31,7 +32,8 @@ while($row=$ex->fetch())
 	echo "<strong>Date de mise en ligne:</strong> ".$row['date_offre'];
 	echo "<br>";
 	echo "<strong>Résumé de l'offre:</strong> ".$row['resume_offre']."<br>";
-	echo "<a href='#'>Voir plus</a>";
+	echo "&nbsp;&nbsp;&nbsp;";
+	echo "<a href='../../function/archiver_offre.php?id=".$idevent."'>Archiver</a>";
 	echo "<hr>";
 }
 
