@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 14 Juillet 2022 à 16:45
+-- Généré le :  Jeu 14 Juillet 2022 à 22:52
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.2.7
 
@@ -39,6 +39,8 @@ CREATE TABLE `classe` (
 INSERT INTO `classe` (`id_classe`, `nom_classe`, `annee`) VALUES
 (1, 'Architecture des Logiciels', 3),
 (2, 'Ingenierie du Web', 3),
+(777, 'Classe Administratif', 6),
+(888, 'Classe Intervenants', 6),
 (999, 'Classe de test', 6);
 
 -- --------------------------------------------------------
@@ -67,6 +69,28 @@ CREATE TABLE `notes` (
   `date_note` varchar(12) DEFAULT NULL,
   `id_cours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `offres`
+--
+
+CREATE TABLE `offres` (
+  `id_offre` int(11) NOT NULL,
+  `lieu_offre` varchar(60) NOT NULL,
+  `texte_offre` varchar(500) NOT NULL,
+  `resume_offre` varchar(100) NOT NULL,
+  `date_offre` varchar(12) NOT NULL,
+  `duree_offre` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `offres`
+--
+
+INSERT INTO `offres` (`id_offre`, `lieu_offre`, `texte_offre`, `resume_offre`, `date_offre`, `duree_offre`) VALUES
+(1, 'Lille (59)', 'Recherche un alternant pour un contrat de 12 mois', 'Développement PHP - AXIA', '12-05-2022', '12 mois');
 
 -- --------------------------------------------------------
 
@@ -105,7 +129,9 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id_profil`, `id_user`, `nom_profil`, `prenom_profil`, `adresse_profil`, `ville_profil`, `CP`, `telephone`, `id_classe`) VALUES
-(1, 2, 'Test', 'Eleve', '32 rue des tests', 'TestLand4', '59350', '0656893987', 999);
+(1, 2, 'Test', 'Eleve', '32 rue des tests', 'TestLand4', '59350', '0656893987', 999),
+(2, 98, 'test', 'test', 'test', 'test', '59000', '0645131', 2),
+(3, 7, 'Klomski', 'Louis', '45 rue du dev', 'Lille', '59000', '0645789621', 1);
 
 -- --------------------------------------------------------
 
@@ -130,9 +156,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `login`, `pass`, `mail`, `d1`, `d2`, `d3`, `d4`) VALUES
 (1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root@urges.fr', 0, 0, 0, 1),
-(2, 'elevetest', '8066e519563be9370591f5a442d2c0c0', 'elevetest@urges.fr', 1, 0, 0, 0),
 (3, 'intervtest', '223d2be38488f24611ace4cabedb59e6', 'intervtest@urges.fr', 0, 1, 0, 0),
-(4, 'adminitest', 'b650d5c24988830b1cff0cd685371077', 'aministratiftest@urges.fr', 0, 0, 1, 0);
+(4, 'adminitest', 'b650d5c24988830b1cff0cd685371077', 'aministratiftest@urges.fr', 0, 0, 1, 0),
+(6, 'elevetest', '8066e519563be9370591f5a442d2c0c0', 'elevetest@gmail.com', 1, 0, 0, 0),
+(7, 'klomski', '9527faf665e0bc950f6450d76ca70f64', 'klomski.gmail.com', 1, 0, 0, 0);
 
 --
 -- Index pour les tables exportées
@@ -155,6 +182,12 @@ ALTER TABLE `cours`
 --
 ALTER TABLE `notes`
   ADD PRIMARY KEY (`id_note`);
+
+--
+-- Index pour la table `offres`
+--
+ALTER TABLE `offres`
+  ADD PRIMARY KEY (`id_offre`);
 
 --
 -- Index pour la table `planning`
@@ -194,6 +227,11 @@ ALTER TABLE `cours`
 ALTER TABLE `notes`
   MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `offres`
+--
+ALTER TABLE `offres`
+  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT pour la table `planning`
 --
 ALTER TABLE `planning`
@@ -202,12 +240,12 @@ ALTER TABLE `planning`
 -- AUTO_INCREMENT pour la table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

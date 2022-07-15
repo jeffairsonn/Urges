@@ -39,6 +39,6 @@ include('../../function/nav_menu.php');
 </p>
 
 <?php
-// Mise ne pace du footer
+// Mise en place du footer
 include('../../function/footer.php');
 ?>
