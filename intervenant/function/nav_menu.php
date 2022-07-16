@@ -17,8 +17,8 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Document</a></li>
               <li><a class="dropdown-item" href="#">Support de cours</a></li>
-              <li><a class="dropdown-item" href="../Home/notes.html">Notes</a></li>
-              <li><a class="dropdown-item" href="../Home/abs.html">Abscence</a></li>
+              <li><a class="dropdown-item" href="../Home/notes.php">Notes</a></li>
+              <li><a class="dropdown-item" href="../Home/abs.php">Abscence</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

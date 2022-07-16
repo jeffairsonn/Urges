@@ -9,10 +9,6 @@ include('../../function/header.php');
 // Mise en place du menu de navigation
 include('../../function/nav_menu.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
     <div style=" display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; margin-top: 24px;">
 
       <div style="width: 100%;  margin-bottom: 32px;">
@@ -82,6 +78,3 @@ include('../../function/nav_menu.php');
 <?php include('../../function/footer.php'); ?>
 
     </div>
-
-</body>
-</html>
