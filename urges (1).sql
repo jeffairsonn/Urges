@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 14 Juillet 2022 à 22:52
+-- Généré le :  Sam 16 Juillet 2022 à 00:13
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.2.7
 
@@ -59,6 +59,29 @@ CREATE TABLE `cours` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `evenements`
+--
+
+CREATE TABLE `evenements` (
+  `id_event` int(11) NOT NULL,
+  `texte_event` varchar(500) NOT NULL,
+  `resume_event` varchar(100) NOT NULL,
+  `date_event` varchar(12) NOT NULL,
+  `archive` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `evenements`
+--
+
+INSERT INTO `evenements` (`id_event`, `texte_event`, `resume_event`, `date_event`, `archive`) VALUES
+(1, 'Rendez-vous au rez-de-chaussée pour une petite collation entre membres de l\'ESGI', 'Pot de bienvenue', '06-09-2021', '0'),
+(2, 'Concert de solidarité pour les étudiants en informatique ', 'Concert de solidarité', '02-11-2021', '0'),
+(5, 'Hackaton test', 'Hackaton ESGI', '23-02-2022', '0');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `notes`
 --
 
@@ -82,15 +105,17 @@ CREATE TABLE `offres` (
   `texte_offre` varchar(500) NOT NULL,
   `resume_offre` varchar(100) NOT NULL,
   `date_offre` varchar(12) NOT NULL,
-  `duree_offre` varchar(12) NOT NULL
+  `duree_offre` varchar(12) NOT NULL,
+  `archive` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `offres`
 --
 
-INSERT INTO `offres` (`id_offre`, `lieu_offre`, `texte_offre`, `resume_offre`, `date_offre`, `duree_offre`) VALUES
-(1, 'Lille (59)', 'Recherche un alternant pour un contrat de 12 mois', 'Développement PHP - AXIA', '12-05-2022', '12 mois');
+INSERT INTO `offres` (`id_offre`, `lieu_offre`, `texte_offre`, `resume_offre`, `date_offre`, `duree_offre`, `archive`) VALUES
+(1, 'Lille (59)', 'Recherche un alternant pour un contrat de 12 mois', 'Développement PHP - AXIA', '12-05-2022', '12 mois', '0'),
+(3, 'Douai (59)', 'Mise en place de serveur Azure', 'Mise en place de serveur - Admin système', '15-07-2022', '24 mois', '0');
 
 -- --------------------------------------------------------
 
@@ -129,7 +154,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id_profil`, `id_user`, `nom_profil`, `prenom_profil`, `adresse_profil`, `ville_profil`, `CP`, `telephone`, `id_classe`) VALUES
-(1, 2, 'Test', 'Eleve', '32 rue des tests', 'TestLand4', '59350', '0656893987', 999),
+(1, 6, 'Test', 'Eleve', '32 rue des tests', 'TestLand4', '59350', '0656893987', 999),
 (2, 98, 'test', 'test', 'test', 'test', '59000', '0645131', 2),
 (3, 7, 'Klomski', 'Louis', '45 rue du dev', 'Lille', '59000', '0645789621', 1);
 
@@ -178,6 +203,12 @@ ALTER TABLE `cours`
   ADD PRIMARY KEY (`id_cours`);
 
 --
+-- Index pour la table `evenements`
+--
+ALTER TABLE `evenements`
+  ADD PRIMARY KEY (`id_event`);
+
+--
 -- Index pour la table `notes`
 --
 ALTER TABLE `notes`
@@ -222,6 +253,11 @@ ALTER TABLE `classe`
 ALTER TABLE `cours`
   MODIFY `id_cours` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `evenements`
+--
+ALTER TABLE `evenements`
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
@@ -230,7 +266,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT pour la table `offres`
 --
 ALTER TABLE `offres`
-  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `planning`
 --
