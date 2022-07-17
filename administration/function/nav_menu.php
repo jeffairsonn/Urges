@@ -26,6 +26,16 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="../Home/gestion_classe.php">Afficher les classes</a></li>
+                <li><a class="dropdown-item" href="../Home/creation_classe.php">Création de classe</a></li>
+                <li><a class="dropdown-item" href="../Home/attribuer_cours.php">Attribuer cours</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gestion des plannings
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="../Home/creation_planning.php">Créer un nouveau planning</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">

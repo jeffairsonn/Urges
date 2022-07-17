@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 16 Juillet 2022 à 00:13
+-- Généré le :  Dim 17 Juillet 2022 à 15:06
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.2.7
 
@@ -41,7 +41,8 @@ INSERT INTO `classe` (`id_classe`, `nom_classe`, `annee`) VALUES
 (2, 'Ingenierie du Web', 3),
 (777, 'Classe Administratif', 6),
 (888, 'Classe Intervenants', 6),
-(999, 'Classe de test', 6);
+(999, 'Classe de test', 6),
+(1000, 'Sécurité informatique', 3);
 
 -- --------------------------------------------------------
 
@@ -55,6 +56,13 @@ CREATE TABLE `cours` (
   `id_intervenant` int(11) NOT NULL,
   `id_classe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `cours`
+--
+
+INSERT INTO `cours` (`id_cours`, `nom_cours`, `id_intervenant`, `id_classe`) VALUES
+(1, 'Base de données & MERISE', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +83,7 @@ CREATE TABLE `evenements` (
 --
 
 INSERT INTO `evenements` (`id_event`, `texte_event`, `resume_event`, `date_event`, `archive`) VALUES
-(1, 'Rendez-vous au rez-de-chaussée pour une petite collation entre membres de l\'ESGI', 'Pot de bienvenue', '06-09-2021', '0'),
+(1, 'Rendez-vous au rez-de-chaussée pour une petite collation entre membres de l\'ESGI', 'Pot de bienvenue', '06-09-2021', '1'),
 (2, 'Concert de solidarité pour les étudiants en informatique ', 'Concert de solidarité', '02-11-2021', '0'),
 (5, 'Hackaton test', 'Hackaton ESGI', '23-02-2022', '0');
 
@@ -156,7 +164,11 @@ CREATE TABLE `profil` (
 INSERT INTO `profil` (`id_profil`, `id_user`, `nom_profil`, `prenom_profil`, `adresse_profil`, `ville_profil`, `CP`, `telephone`, `id_classe`) VALUES
 (1, 6, 'Test', 'Eleve', '32 rue des tests', 'TestLand4', '59350', '0656893987', 999),
 (2, 98, 'test', 'test', 'test', 'test', '59000', '0645131', 2),
-(3, 7, 'Klomski', 'Louis', '45 rue du dev', 'Lille', '59000', '0645789621', 1);
+(3, 7, 'Klomski', 'Louis', '45 rue du dev', 'Lille', '59000', '0645789621', 1),
+(4, 8, 'Dupont', 'Jean', '2 rue des potiers', 'Lambersart', '59130', '0358964121', 1),
+(5, 4, 'Administratif', 'Test', '3 rue de l\'administration', 'Lille', '59000', '0645122154', 777),
+(6, 3, 'ValJean', 'Jean', '3 rue des révolutions', 'Douai', '59500', '0327845132', 888),
+(7, 9, 'De données', 'Base', '1 rue des profs', 'Lille', '59000', '0682719346', 888);
 
 -- --------------------------------------------------------
 
@@ -184,7 +196,9 @@ INSERT INTO `user` (`id_user`, `login`, `pass`, `mail`, `d1`, `d2`, `d3`, `d4`) 
 (3, 'intervtest', '223d2be38488f24611ace4cabedb59e6', 'intervtest@urges.fr', 0, 1, 0, 0),
 (4, 'adminitest', 'b650d5c24988830b1cff0cd685371077', 'aministratiftest@urges.fr', 0, 0, 1, 0),
 (6, 'elevetest', '8066e519563be9370591f5a442d2c0c0', 'elevetest@gmail.com', 1, 0, 0, 0),
-(7, 'klomski', '9527faf665e0bc950f6450d76ca70f64', 'klomski.gmail.com', 1, 0, 0, 0);
+(7, 'klomski', '9527faf665e0bc950f6450d76ca70f64', 'klomski.gmail.com', 1, 0, 0, 0),
+(8, 'Eleve1', 'a3e3a3c24335ca042812b8bab9ea61d7', 'eleve1@gmail.com', 1, 0, 0, 0),
+(9, 'bdd', '61de962f19b684dc9ce24c0fdcdbd0de', 'coursbdd@gmail.com', 0, 1, 0, 0);
 
 --
 -- Index pour les tables exportées
@@ -246,12 +260,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `classe`
 --
 ALTER TABLE `classe`
-  MODIFY `id_classe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `id_classe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 --
 -- AUTO_INCREMENT pour la table `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id_cours` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cours` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `evenements`
 --
@@ -276,12 +290,12 @@ ALTER TABLE `planning`
 -- AUTO_INCREMENT pour la table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

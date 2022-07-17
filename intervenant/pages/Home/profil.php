@@ -3,7 +3,7 @@
 //Reprise de session
 session_start();
 // Verification de la connexion utilisateur
-if($_SESSION['connect'] !== "1" || $_SESSION['d1'] !== "1"){ header('Location: ../../../index.html'); }
+if($_SESSION['connect'] !== "1" || $_SESSION['d2'] !== "1"){  header('Location: ../../../index.html'); }
 // Récuperation de la connexion à la base de données
 include('../../function/bdd.php');
 // Mise en place du header

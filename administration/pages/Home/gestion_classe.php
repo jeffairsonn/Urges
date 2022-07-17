@@ -15,17 +15,16 @@ include('../../function/nav_menu.php');
 <center><h2>Gestion des classes</h2></center><hr>
 
 <!-- Mise en place en-tete de tableau -->
-<table width="1400">
+<table width="1200">
 	<tr>
 		<td>Année</td>
 		<td>Intitulé de la classe</td>
 		<td><center>Modifier</center></td>
-		<td><center>Supprimer</center></td>
 	</tr>
 
 <!-- Fin mise en place en-tete de tableau -->
 <!-- Mise en place formulaire -->
-	<form action="?">
+	<form action="modifierclasse.php" method="get">
 
 
 <!-- Fin mise enplace formulaire -->
@@ -38,11 +37,11 @@ $ex->execute();
 // Execution de la requete
 while($row=$ex->fetch())
 {
+	$idclasse = $row['id_classe'];
 	echo "<tr>";
 		echo "<td>".$row['annee']."</td>";
 		echo "<td>".$row['nom_classe']."</td>";
-		echo "<td><center><input type=submit name='modifier?id=".$row['id_classe']."' value='&nbsp;'></center></td>";
-		echo "<td><center><input type=submit name=modifier?id=".$row['id_classe']."' value='&nbsp;'></center></td>";
+		echo "<td><center><a href='modifierclasse.php?id=".$idclasse."'>Modifier</a></center></td>";
 	echo "</tr>";
 }
 // fin de la requete
