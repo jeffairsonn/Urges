@@ -8,7 +8,7 @@
               <a class="nav-link active" style="color: white;" aria-current="page" href="../Home/index.php">Accueil</a>
             </li>
             <li>
-              <a class="nav-link active" style="color: white;" aria-current="page" href="#">Plannings</a>
+              <a class="nav-link active" style="color: white;" aria-current="page" href="../Home/planning.php">Planning</a>
             </li>
             <li class="nav-item dropdown">
               <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
