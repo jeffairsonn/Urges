@@ -36,8 +36,6 @@ include('../../function/nav_menu.php');
         <header class="custom-header">
             <nav class="navbar navbar-expand-lg static-top navbar-dark">
                 <div class="container">
-				<img class="objet-cover" src="assets/img/logo_base.png">
-                    <h1 class="logo">Construit ton CV avec ChristoCV</h1>
                     <button
                         class="navbar-toggler"
                         type="button"
